@@ -1,6 +1,6 @@
 version: "2"
 services:
-  mysql:
+  hands_on_mysql:
     container_name: hands_on_mysql
     build: ./mysql
     image: hands_on/mysql
@@ -14,7 +14,7 @@ services:
       app_net:
         ipv4_address: 172.16.1.2
 
-  ubuntu:
+  hands_on_ubuntu:
     container_name: hands_on_ubuntu
     privileged: true
     command: /sbin/init
@@ -26,19 +26,12 @@ services:
     volumes:
       - /Users/yonedahiroshi/Desktop/git/hands_on:/opt/hands_on
     depends_on:
-      - mysql
-      
-  php-cli:
-    container_name: hands_on_php-cli
-    image: hands_on/php-cli
-    build: ./ubuntu
-    volumes:
-      - /Users/yonedahiroshi/Desktop/git/hands_on:/opt/hands_on
+      - hands_on_mysql
       
 volumes:
   db:
 
-# ubuntuコンテナからmysqlコンテナへの接続ipはgetewayのipを利用する
+# hands_on_ubuntuコンテナからhands_on_mysqlコンテナへの接続ipはgetewayのipを利用する
 networks:
   app_net:
     driver: bridge

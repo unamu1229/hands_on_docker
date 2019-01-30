@@ -21,3 +21,14 @@ RUN curl -sS https://getcomposer.org/installer | php; mv composer.phar /usr/loca
 RUN apt-get install -y mysql-client
 
 RUN apt-get install -y git
+
+# phpstormのdocker-composeの設定が良い感じに動かないのでsshで接続する
+# @see https://docs.docker.com/engine/examples/running_ssh_service/
+RUN apt-get install -y openssh-server
+RUN mkdir /var/run/sshd
+RUN echo 'root:screencast' | chpasswd
+RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
+
+
+RUN apt-get install -y nano
