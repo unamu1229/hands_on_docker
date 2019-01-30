@@ -1,15 +1,21 @@
-# hands_on_ubuntuコンテナへの接続方法
-docker exec -it hands_on_ubuntu script -q -c "/bin/bash"
-
-# hands_on_ubuntuコンテナからDB接続コマンド
-mysql -u root -psecret2q3 -h 172.16.1.1
-
-# ローカルファイルとhands_on_ubuntuコンテナ間のファイル共有
-docker-compose.yml の services > hands_on_ubuntu > volumes の 〇〇〇:/opt/hands_on 
-の〇〇〇の箇所にローカルファイルの場所を設定する
-
-# 始め方
+# ハンズオンの始め方
+## hands_on_DDDリポジトリファイルとhands_on_ubuntuコンテナ間のファイル共有　　
+docker-compose.yml の services > hands_on_ubuntu > volumes の 〇〇〇:/opt/hands_on　　
+の〇〇〇の箇所にhands_on_DDDリポジトリをpullした場所を設定する。　　
+## コンテナに入ってphpunitやautoloadのファイルをインストール
+```
 docker-compose up -d
+docker exec -it hands_on_ubuntu script -q -c "/bin/bash"
+cd /opt/hands_on/
+composer install
+```
+これで下記コマンドでテストを実行できます。
+```
+vendor/bin/phpunit tests
+```
+
+下記以降はphpstormでphpunitを実行したい方向け　　
+
 
 # hands_on_ubuntuコンテナでphpstormからphpunitを動かす為の設定
 ※docker-composeの設定だと、phpstormのユニットテストで生成された  
@@ -25,3 +31,9 @@ Passwordは screencast
 ## Languages & Frameworks > PHP の　Path mappings を設定する  
 
 他の設定も必要かもしれないけど、とりあえずphpstormからphpunitを実行して、設定漏れの警告がでたら設定してあげる
+
+# hands_on_ubuntuコンテナへの接続方法
+docker exec -it hands_on_ubuntu script -q -c "/bin/bash"
+
+# hands_on_ubuntuコンテナからDB接続コマンド
+mysql -u root -psecret2q3 -h 172.16.1.1
