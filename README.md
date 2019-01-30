@@ -17,10 +17,11 @@ docker-compose up -d
 同じdocker-compose.ymlを利用しているのに、双方が別のdocker-composeとみなされていそう。  
 なので、hands_on_ubuntuコンテナに普通にssh接続して、コンテナのphpunitを利用する方法にする。  
 
-CLI Interpretersを設定する  
+## CLI Interpretersを設定する  
 ![CLI Interpreters](https://bitbucket.org/h_yoneda/hands_on_docker/raw/93a9c9357c08fd29baac2b9a7510fe9b1c93cd06/CLI_Interpreters.png)  
 Passwordは screencast
-
-Languages & Frameworks > PHP の　Path mappings も設定する  
+## Test Frameworksを設定する
+![Test Frameworks](https://bitbucket.org/h_yoneda/hands_on_docker/raw/19baa615e84d47f97a641f235c586771ff78d48f/TestFrameworks.png)
+## Languages & Frameworks > PHP の　Path mappings を設定する  
 
 他の設定も必要かもしれないけど、とりあえずphpstormからphpunitを実行して、設定漏れの警告がでたら設定してあげる
