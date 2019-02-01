@@ -29,6 +29,8 @@ Passwordは screencast
 ## Test Frameworksを設定する
 ![Test Frameworks](https://bitbucket.org/h_yoneda/hands_on_docker/raw/19baa615e84d47f97a641f235c586771ff78d48f/TestFrameworks.png)
 ## Languages & Frameworks > PHP の　Path mappings を設定する  
+※Path to scriptの設定時にssh接続エラーが出る時、ToolsのStart SSH Sessionを試してみる
+
 
 他の設定も必要かもしれないけど、とりあえずphpstormからphpunitを実行して、設定漏れの警告がでたら設定してあげる
 
@@ -37,3 +39,7 @@ docker exec -it hands_on_ubuntu script -q -c "/bin/bash"
 
 # hands_on_ubuntuコンテナからDB接続コマンド
 mysql -u root -psecret2q3 -h 172.16.1.1
+
+# hands_on_ubuntuコンテナへのsshコマンド接続方法
+ssh root@127.0.0.1
+パスワード : screencast

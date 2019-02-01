@@ -24,7 +24,7 @@ services:
       - "80:80"
       - "22:22"
     volumes:
-      - /Users/yonedahiroshi/Desktop/git/hands_on:/opt/hands_on
+      - /Users/yonedahiroshi/Desktop/git/hands_on_DDD:/opt/hands_on_DDD
     depends_on:
       - hands_on_mysql
       
