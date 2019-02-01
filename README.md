@@ -1,6 +1,6 @@
 # ハンズオンの始め方
 ## hands_on_DDDリポジトリファイルとhands_on_ubuntuコンテナ間のファイル共有　　
-docker-compose.yml の services > hands_on_ubuntu > volumes の 〇〇〇:/opt/hands_on　　
+docker-compose.yml の services > hands_on_ubuntu > volumes の 〇〇〇:/opt/hands_on_DDD
 の〇〇〇の箇所にhands_on_DDDリポジトリをpullした場所を設定する。　　
 ## コンテナに入ってphpunitやautoloadのファイルをインストール
 ```
