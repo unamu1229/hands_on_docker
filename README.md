@@ -35,11 +35,34 @@ Passwordは screencast
 他の設定も必要かもしれないけど、とりあえずphpstormからphpunitを実行して、設定漏れの警告がでたら設定してあげる
 
 # hands_on_ubuntuコンテナへの接続方法
+```
 docker exec -it hands_on_ubuntu script -q -c "/bin/bash"
+```
 
 # hands_on_ubuntuコンテナからDB接続コマンド
+```
 mysql -u root -psecret2q3 -h 172.16.1.1
+```
 
 # hands_on_ubuntuコンテナへのsshコマンド接続方法
 ssh root@127.0.0.1
 パスワード : screencast
+
+# laravel-dddハンズオンの始め方
+```
+docker exec -it hands_on_ubuntu script -q -c 
+```
+でコンテナに入り下記コマンドを打つ
+```
+composer global require "laravel/installer"
+export PATH=$PATH:$HOME/.composer/vendor/bin
+www# laravel new hands_on_Laravel_DDD --force
+```
+
+Macの/etc/hostsファイルに
+```
+127.0.0.1 laravel-ddd
+```
+を追加する。
+
+ブラウザからlaravel-dddにアクセスし、Laravelと表示されればOK

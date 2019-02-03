@@ -5,9 +5,7 @@ RUN apt-get install -y software-properties-common
 # setup.shのadd-apt-repositoryをRUNでするとこける
 COPY ./setup.sh /tmp
 RUN bash /tmp/setup.sh
-RUN apt-get install -y --allow-unauthenticated php7.1 memcached php7.1-common php7.1-mysql php7.1-memcache php7.1-memcached php7.1-curl php7.1-intl php7.1-gd
-RUN apt-get install -y --allow-unauthenticated php7.1-mbstring
-RUN apt-get install -y --allow-unauthenticated php7.1-xml
+RUN apt-get install -y --allow-unauthenticated php7.1 memcached php7.1-common php7.1-mysql php7.1-memcache php7.1-memcached php7.1-curl php7.1-intl php7.1-gd php7.1-zip php7.1-mbstring php7.1-xml
 
 # 何故かcliが7.3なので削除する、7.1に自動で変わる
 RUN apt-get remove -y php7.3-cli
@@ -28,5 +26,7 @@ RUN echo 'root:screencast' | chpasswd
 RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 RUN sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
 
-
 RUN apt-get install -y nano
+
+COPY ./hands_on_laravel_ddd.conf /etc/apache2/sites-available/hands_on_laravel_ddd.conf
+RUN a2ensite hands_on_laravel_ddd

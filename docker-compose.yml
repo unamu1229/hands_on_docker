@@ -24,7 +24,8 @@ services:
       - "80:80"
       - "22:22"
     volumes:
-      - /Users/yonedahiroshi/Desktop/git/hands_on_DDD:/opt/hands_on_DDD
+      - /Users/unamu/Desktop/git/hands_on_ddd:/opt/hands_on_DDD
+      - /Users/unamu/Desktop/git/hands_on_laravel_ddd:/var/www/hands_on_Laravel_DDD
     depends_on:
       - hands_on_mysql
       
