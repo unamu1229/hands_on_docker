@@ -50,7 +50,7 @@ ssh root@127.0.0.1
 
 # laravel-dddハンズオンの始め方
 ```
-docker exec -it hands_on_ubuntu script -q -c 
+docker exec -it hands_on_ubuntu script -q -c "/bin/bash"
 ```
 でコンテナに入り下記コマンドを打つ
 ```
